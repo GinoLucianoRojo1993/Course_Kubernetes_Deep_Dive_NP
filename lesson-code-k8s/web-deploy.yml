@@ -1,23 +1,26 @@
+--- 
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: simple-web
-  labels:
+metadata: 
+  labels: 
     customer: acg
-spec:
-  selector:
-    matchLabels:
-      app: web
+  name: gino-app
+spec: 
   replicas: 3
-  strategy:
+  selector: 
+    matchLabels: 
+      app: web
+  strategy: 
     type: RollingUpdate
-  template:
-    metadata:
-      labels:
+  template: 
+    metadata: 
+      labels: 
         app: web
-    spec:
-      containers:
-      - image: nigelpoulton/acg-web:0.1
-        name: web-ctr
-        ports:
-        - containerPort: 8080
+    spec: 
+      containers: 
+        - 
+          image: "ginolucianorojo/kubernetesexample:0.0.1"
+          name: gino-app
+          ports: 
+            - 
+              containerPort: 8080
